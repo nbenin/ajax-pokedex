@@ -9,23 +9,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="Poké-dex library to keep track of all the pokemons"><!--keywords that help SEO-->
     <meta name="robots" content="index,follow"> <!-- search engine crawler will follow all indexes of the page, appear on google faster -->
-    <link rel="icon" href="img/pokedex-icon.png"> <!--icon that appears on tab-->
+    <link rel="icon" href="assets/img/pokedex-icon.png"> <!--icon that appears on tab-->
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="Imane and Neil">
     <meta name="description" content="Poké-dex library to keep track of all the pokemons"><!--description that appears on google search-->
     <title>Poké-dex</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
-
-<section class="inputPokeName">
+<div id="pokedex">
+<section class="left">
     <p class="titles">Search <strong>Pokemon</strong></p>
+    <section class="displayPokemon">
+        <img id="icon" src="" alt="pokeImage">
+        <p id="Pname"></p>
+    </section>
     <input id="input" class="searchbar" placeholder="enter the poke name!">
     <button id ="button"  type="button" >search</button>
 </section>
 
-<section class="img">
-    <img id="icon" src="" alt="pokeImage">
+<section id="right">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <img src="" alt="evoulution-icon">
+    <p id="name"></p>
+
+    <button></button>
+    <button></button>
 </section>
+</div>
 <!--first load library for script to work-->
 <script src="scripts/script.js"></script>
 </body>

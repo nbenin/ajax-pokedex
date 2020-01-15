@@ -1,3 +1,10 @@
-body{
-    background-image: url("img/bg.svg");
+#pokedex{
+    background-image: url("../img/bg.svg");
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 80vh;
+
+}
+#input{
+
 }
