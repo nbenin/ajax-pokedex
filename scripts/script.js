@@ -1,21 +1,34 @@
-//declaring var for pokedex
+// Declaring var for pokedex, using pokeapi-js-wrapper
 const p = new Pokedex.Pokedex();
 
-//run click event
-document.getElementById('button').onclick = function() {
-    getPokemon(getinput());
-};
+// Main program
+document.getElementById('button').addEventListener('click',  function() {
+
+    let pokemonName = document.getElementById('input').value;
+    getPokemon(pokemonName);
+
+});
 
 async function getPokemon(pokemonName){
 
-    const pokemon = await p.getPokemonByName(`${pokemonName}`);
-    console.log(pokemon);
+    // Create pokemon object
+    const pokemonObject = await p.getPokemonByName(`${pokemonName}`);
+
+    // Function calls
+    getIcon(pokemonObject);
+    
 
 }
 
-function  getinput() {
-    return document.getElementById('input').value;
+function getIcon(pokemonObject) {
+    let img = pokemonObject.sprites.front_default;
+    let icon =document.getElementById('icon');
+    icon.src = img;
 }
+
+
+
+
 
 
 
