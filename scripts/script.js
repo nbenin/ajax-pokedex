@@ -15,6 +15,7 @@ async function getPokemon(name){
     const response1= await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
     const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
 
+
     //convert to json
     const pObject =  await response1.json();
     const pSpecies =   await response2.json();
@@ -26,7 +27,7 @@ async function getPokemon(name){
     //setIcon(pSpecies);
     setMoves(pObject);
     getEvolution(pSpecies);
-    console.log(setIcon(pObject));
+    //why is this undefined here?? console.log(setIcon(pObject));
 }
 
 //filter icon from object and set to DOM
@@ -37,13 +38,6 @@ function setIcon(pokemonObject) {
 
 
 }
-
-//geticonEvolution
-
-function setIconev(){
-    let img = nothingyet;
-}
-
 
 
 //filter at least 4 moves from object and set to DOM
@@ -62,7 +56,7 @@ function setMoves(pokemonObject) {
 }
 
 //filter previous evolutions if any
-function getEvolution(species){
+async function getEvolution(species){
 
     let preEvolution = '';
 
@@ -75,6 +69,15 @@ function getEvolution(species){
 
     console.log(preEvolution);
 
+    //need to do a fetch to get the json of the evolution pokemon, so i can get the image, not in the other json
+    let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${preEvolution}`);
+    let evolutionObject = await res.json();
+
+    //seticon to dom
+    let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
+    let icon = document.getElementById('iconEvolution');
+    icon.src = src;
+    console.log(evolutionObject.id);
 }
 
 
