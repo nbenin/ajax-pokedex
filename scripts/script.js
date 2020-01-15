@@ -31,9 +31,6 @@ function setIcon(pokemonObject) {
     let icon = document.getElementById('icon');
     icon.src = img;
 
-
-
-
 }
 
 //filter at least 4 moves from object and set to DOM
@@ -46,10 +43,18 @@ function setMoves(pokemonObject) {
     console.log(moves);
 }
 
-
+//filter previous evolutions if any
 function getEvolution(species){
 
-    let preEvolution = species.evolves_from_species.name;
+    let preEvolution = '';
+
+    if (species.evolves_from_species.name === null) {
+        return "No previous evolution";
+    }
+    else {
+        preEvolution = species.evolves_from_species.name;
+    }
+
     console.log(preEvolution);
 
 }
