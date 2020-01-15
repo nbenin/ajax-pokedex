@@ -17,30 +17,35 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
-<h1 class="title">The greatest Poké-dex</h1>
+<h1 class="titles">The greatest Poké-dex</h1>
 <div id="pokedex">
-    <section class="left">
 
+
+        <section class="displayPokemon">
         <img id="icon" src="" alt="pokeImage">
         <p id="Pname"></p>
+        </section>
+
+        <section class="search">
         <input id="input" class="searchbar" placeholder="enter the poke name!">
-        <button id ="button"  type="button" >search</button>
+        <button id="button" class ="button"  type="button" >search</button>
+        </section>
 
-    </section>
-
-    <section id="right">
+    <section class="moves">
     <ul>
         <li></li>
         <li></li>
         <li></li>
         <li></li>
     </ul>
-
+    </section>
+<section class="evolution">
     <img src="" alt="evoulution-icon">
     <p id="name"></p>
-
-    <button id ="button"  type="button" >Moves</button>
-    <button id ="button"  type="button" >Evolution</button>
+</section>
+    <section class="buttonsRigth">
+    <button  class ="button"  type="button" >Moves</button>
+    <button class ="button"  type="button" >Evolution</button>
     </section>
 </div>
 <!--first load library for script to work-->
