@@ -1,10 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'LoRes';
+}
 #pokedex{
     background-image: url("../img/bg.svg");
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 80vh;
+    width: 70vmax;
+    height: 70vmax;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows: 1fr 1fr 1fr;
+    /* you can also say repeat (2,1fr)*/
+}
+
+.left{
+display: flex;
+    padding:20vmax 0 0 5vmax;
 
 }
-#input{
+.displayPokemon{
+    display: flex;
+}
+.search{
+    display: flex;
+    grid-row: 2/3;
+}
 
+.right{
+
+}
+
+
+#button{
+    background-color: rgb(255, 211, 154);
+    border: solid 4px black;
+    padding: 6px;
+    border-radius:5px;
+    color: black;
+    font-size: 16px;
+
+}
+#button:hover {
+    cursor: pointer;
+    background: slateblue;
+    color: whitesmoke;
+    transition: all 0.2s;
+    border: solid 4px slateblue;
+
+}
+
+@font-face {
+    font-family: "LoRes";
+    src: url("../img/LoRes12OT-BoldAltOakland.ttf");
+    font-style: normal;
+    font-weight: 100;
 }

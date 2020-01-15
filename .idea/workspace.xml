@@ -4,8 +4,7 @@
     <list default="true" id="a6e77501-68ce-439e-9a8a-f9479cb66a90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/bg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pokedex-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/pokedex-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/bg.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +29,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets" />
     </key>
@@ -61,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579077485749</updated>
       <workItem from="1579077487107" duration="7921000" />
-      <workItem from="1579095017420" duration="5866000" />
+      <workItem from="1579095017420" duration="9477000" />
     </task>
     <servers />
   </component>
@@ -69,6 +71,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="551" y="337" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579116580053">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="551" y="337" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.822@0.23.1440.822" timestamp="1579116580053" />
     <state x="305" y="235" key="EditFileWatcherDialog" timestamp="1579101070348">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

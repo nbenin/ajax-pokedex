@@ -17,18 +17,22 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
+<p class="titles">The greatest <strong>Poké-dex</strong></p>
 <div id="pokedex">
-<section class="left">
-    <p class="titles">Search <strong>Pokemon</strong></p>
-    <section class="displayPokemon">
+    <section class="left">
+
+        <section class="displayPokemon">
         <img id="icon" src="" alt="pokeImage">
         <p id="Pname"></p>
-    </section>
-    <input id="input" class="searchbar" placeholder="enter the poke name!">
-    <button id ="button"  type="button" >search</button>
-</section>
+        </section>
 
-<section id="right">
+        <section class="search">
+        <input id="input" class="searchbar" placeholder="enter the poke name!">
+        <button id ="button"  type="button" >search</button>
+        </section>
+    </section>
+
+    <section id="right">
     <ul>
         <li></li>
         <li></li>
@@ -39,9 +43,9 @@
     <img src="" alt="evoulution-icon">
     <p id="name"></p>
 
-    <button></button>
-    <button></button>
-</section>
+    <button id ="button"  type="button" >Moves</button>
+    <button id ="button"  type="button" >Evolution</button>
+    </section>
 </div>
 <!--first load library for script to work-->
 <script src="scripts/script.js"></script>
