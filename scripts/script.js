@@ -36,7 +36,7 @@ function setIcon(pokemonObject) {
 //filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
     let moves = [];
-    for(i =0; i < 4; i++){
+    for(i =0; i < pokemonObject.moves.length; i++){
         let getMoves = pokemonObject.moves[i];
         moves.push(getMoves);
     }
