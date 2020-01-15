@@ -9,14 +9,14 @@ document.getElementById('button').addEventListener('click',  function() {
 
 });
 
-async function getPokemon(pokemonName){
+async function getPokemon(name){
 
     // Create pokemon object
-    const pokemonObject = await p.getPokemonByName(`${pokemonName}`);
+    const pokemonObject = await p.getPokemonByName(`${name}`);
 
     // Function calls
     getIcon(pokemonObject);
-    
+
 
 }
 
