@@ -4,6 +4,9 @@ document.getElementById('button').addEventListener('click',  function() {
     let pokemonName = document.getElementById('input').value;
     getPokemon(pokemonName);
 
+    //output name in DOM element
+    document.getElementById('Pname').innerHTML = pokemonName;
+
 });
 
 async function getPokemon(name){
@@ -20,9 +23,10 @@ async function getPokemon(name){
     console.log(pSpecies);
     // Function calls
     setIcon(pObject);
+    //setIcon(pSpecies);
     setMoves(pObject);
     getEvolution(pSpecies);
-
+    console.log(setIcon(pObject));
 }
 
 //filter icon from object and set to DOM
@@ -31,7 +35,16 @@ function setIcon(pokemonObject) {
     let icon = document.getElementById('icon');
     icon.src = img;
 
+
 }
+
+//geticonEvolution
+
+function setIconev(){
+    let img = nothingyet;
+}
+
+
 
 //filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
@@ -63,6 +76,8 @@ function getEvolution(species){
     console.log(preEvolution);
 
 }
+
+
 
 
 

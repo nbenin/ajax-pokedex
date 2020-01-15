@@ -3,27 +3,32 @@
     padding: 0;
     font-family: 'LoRes';
 }
+.title{
+    margin: 2vh 0 2vh 2vw;
+}
 #pokedex{
     background-image: url("../img/bg.svg");
     background-repeat: no-repeat;
-    width: 70vmax;
-    height: 50vmax;
+    width: 60vmax;
+    height: 45vmax;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 0.5fr 1fr;
     /* you can also say repeat (2,1fr)*/
 }
 
 
 /* placing the sections into the right grid box and adding padding and margin*/
 .displayPokemon{
-    padding:20vmax 0 0 5vmax;
+    padding:30vh 0 0 10vw;
     grid-row: 1/2;
     grid-column: 1/2;
+
 }
 .search{
     grid-column: 1/2;
     grid-row: 3/4;
+    padding-left: 3vw;
 }
 .moves{
     grid-column: 2/3;
@@ -34,10 +39,12 @@
 .evolution{
     grid-column: 3/4;
     grid-row: 1/2;
+    margin-top: 15vh;
 }
 .buttonsRigth{
     grid-column: 2/4;
     grid-row: 3/4;
+    margin-left: 3vw;
 }
 
 
@@ -73,4 +80,8 @@
     src: url("../img/LoRes12OT-BoldAltOakland.ttf");
     font-style: normal;
     font-weight: 100;
+}
+
+li{
+    list-style-type:none
 }
