@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6e77501-68ce-439e-9a8a-f9479cb66a90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -52,7 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579077485749</updated>
       <workItem from="1579077487107" duration="7921000" />
-      <workItem from="1579095017420" duration="3593000" />
+      <workItem from="1579095017420" duration="3988000" />
     </task>
     <servers />
   </component>
@@ -60,6 +61,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="305" y="235" key="EditFileWatcherDialog" timestamp="1579101070348">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="305" y="235" key="EditFileWatcherDialog/0.0.1440.900@0.0.1440.900" timestamp="1579101070348" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1579101066698">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1579101066698" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1579095016963">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
