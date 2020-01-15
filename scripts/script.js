@@ -35,10 +35,15 @@ function setIcon(pokemonObject) {
 
 //filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
+
+    // fill an array with up to 4 moves
     let moves = [];
     for(i =0; i < pokemonObject.moves.length; i++){
         let getMoves = pokemonObject.moves[i];
         moves.push(getMoves);
+        if (i >= 3) {
+            break;
+        }
     }
     console.log(moves);
 }
@@ -48,8 +53,8 @@ function getEvolution(species){
 
     let preEvolution = '';
 
-    if (species.evolves_from_species.name === null) {
-        return "No previous evolution";
+    if (species.evolves_from_species == null) {
+        preEvolution = "No previous evolution";
     }
     else {
         preEvolution = species.evolves_from_species.name;
