@@ -8,22 +8,20 @@ document.getElementById('button').addEventListener('click',  function() {
 
 async function getPokemon(name){
 
+    //fetch stream of data
+    const response1= await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
 
-    // Create pokemon object
-    const pObject = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    const pSpecies = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
+    //convert to json
+    const pObject =  await response1.json();
+    const pSpecies =   await response2.json();
 
     console.log(pObject);
     console.log(pSpecies);
     // Function calls
-   setIcon(pObject);
-   setMoves(pObject);
-
-
-    console.log(pObject);
-    console.log(pSpecies);
-
-
+    setIcon(pObject);
+    setMoves(pObject);
+    getEvolution(pSpecies);
 
 }
 
@@ -32,6 +30,10 @@ function setIcon(pokemonObject) {
     let img = pokemonObject.sprites.front_default;
     let icon = document.getElementById('icon');
     icon.src = img;
+
+
+
+
 }
 
 //filter at least 4 moves from object and set to DOM
@@ -43,6 +45,15 @@ function setMoves(pokemonObject) {
     }
     console.log(moves);
 }
+
+
+function getEvolution(species){
+
+    let preEvolution = species.evolves_from_species.name;
+    console.log(preEvolution);
+
+}
+
 
 
 
