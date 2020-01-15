@@ -53,6 +53,7 @@ function setMoves(pokemonObject) {
         }
     }
     console.log(moves);
+
 }
 
 //filter previous evolutions if any
