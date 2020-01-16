@@ -18,38 +18,43 @@
 </head>
 <body>
 <h1 class="title">The greatest Poké-dex</h1>
-<div id="pokedex">
-
-    <!--display pokemon img and name-->
+<div id="container">
+    <div id="pokedex">
+        <!--display pokemon img and name-->
         <section class="displayPokemon">
-        <img id="icon" src="" alt="pokeImage">
+            <img id="icon" src="" alt="pokeImage">
         </section>
 
-    <section class="search">
-        <input id="input" class="searchbar" placeholder="enter the poke name!">
-        <button id="button" class ="button"  type="button" >search</button>
+        <section class="search">
+            <input id="input" class="searchbar" placeholder="enter the poke name!">
+            <button id="button" class ="button"  type="button" >search</button>
         </section>
-    </section>
 
-    <section id="description">
-        <p id="information"></p>
-    </section>
 
-    <section id="moves">
-        <ul id="movesList">
+        <section class="hiddenStuff">
 
-        </ul>
-    </section>
+            <section id="description">
+                <p id="information"></p>
+            </section>
 
-    <section class="evolution" id="evolution">
-        <img id ="iconEvolution" src="" alt="evolution-icon">
-        <p id="evolutionName"></p>
-    </section>
+            <section id="moves">
+                <ul id="movesList">
+                </ul>
+            </section>
 
-    <section class="buttonsRight">
-        <button  class ="button"  type="button" id="prevButton"><==</button>
-        <button class ="button"  type="button" id="nextButton">==></button>
-    </section>
+            <section class="evolution" id="evolution">
+                <img id ="iconEvolution" src="" alt="evolution-icon">
+                <p id="evolutionName"></p>
+            </section>
+
+        </section>
+
+        <section class="buttonsRight">
+            <button  class ="button"  type="button" id="prevButton"><==</button>
+            <button class ="button"  type="button" id="nextButton">==></button>
+        </section>
+
+    </div>
 </div>
 <!--first load library for script to work-->
 <script src="scripts/script.js"></script>

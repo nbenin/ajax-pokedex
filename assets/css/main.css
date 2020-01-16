@@ -2,9 +2,13 @@
     margin: 0;
     padding: 0;
     font-family: 'LoRes';
+    font-size:  1.5vmax;
 }
 .title{
     margin: 2vh 0 2vh 2vw;
+}
+#container{
+    margin: 0 auto;
 }
 #pokedex{
     margin: auto;
@@ -17,38 +21,55 @@
     grid-template-rows: 1fr  1fr;
     justify-items: center;
     align-items: center;
+
     /* you can also say repeat (2,1fr)*/
 }
 
 
 /* placing the sections into the right grid box and adding padding and margin*/
 .displayPokemon{
-    margin-top: 25%;
+
+    margin-top: 50%;
     grid-row: 1/2;
     grid-column: 1/2;
     visibility: hidden;
+    border: 5px solid black;
+    position: relative;
+}
+#icon{
+    width: 8vmax;
 }
 .search{
     grid-column: 1/2;
     grid-row: 2/3;
+    position: relative;
 
 }
-.moves{
+.hiddenStuff{
     grid-column: 2/3;
     grid-row: 1/2;
+    padding: 0 6vmax 0 6vmax;
+    margin-top: 35%;
+    position: relative;
 
-    display: flex;
 }
-.evolution{
-    grid-column:2/3;
-    grid-row: 1/2;
-    margin-top: 15vh;
-    visibility: hidden;
+#description{
+
 }
-.buttonsRigth{
-    grid-column: 2/4;
+#moves{
+
+}
+#evolution{
+
+}
+.buttonsRight{
+    grid-column: 2/3;
     grid-row: 2/3;
     margin-left: 3vw;
+    display: flex;
+    margin-top: 40px;
+    position: relative;
+
 }
 
 
@@ -61,7 +82,8 @@
     color: black;
     font-size: 16px;
     min-height: 20%;
-max-height: 30%;
+    max-height: 30%;
+    margin: 2vh;
 
 }
 .button:hover {
