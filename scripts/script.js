@@ -97,6 +97,7 @@ function setMoves(pokemonObject) {
 
     MOVESDIV.style.visibility = 'visible';
     let movesList = document.getElementById('movesList');
+    console.log(movesList);
 
     // fill an array with up to 4 moves
     let moves = [];
@@ -108,11 +109,13 @@ function setMoves(pokemonObject) {
         }
     }
 
+    // remove children and add new ones
     if (movesList.hasChildNodes()) {
         for (y = 0; y < moves.length; y++) {
             movesList.removeChild();
         }
     }
+
     for (x = 0; x < moves.length; x++) {
         movesList.innerHTML += '<li>' + moves[x].move.name + '</li>';
     }
