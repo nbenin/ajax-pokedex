@@ -19,11 +19,40 @@ async function getPokemon(name){
     const pObject =  await response1.json();
     const pSpecies =   await response2.json();
 
-    // Function calls
+    // Set First Information
     setDescription(pSpecies);
     setIcon(pObject);
-    setMoves(pObject);
-    getEvolution(pSpecies);
+
+    // Activate buttons
+    let descriptionCount = 0;
+
+    document.getElementById('nextButton').addEventListener('click', function () {
+        descriptionCount++;
+        if (descriptionCount === 1) {
+            setMoves(pObject);
+        }
+        else if (descriptionCount === 2) {
+            setEvolution(pSpecies);
+        }
+        else {
+            setDescription(pSpecies);
+            descriptionCount = 0;
+        }
+    });
+    document.getElementById('prevButton').addEventListener('click', function () {
+        descriptionCount--;
+        if (Math.abs(descriptionCount) === 1) {
+            setEvolution(pSpecies);
+        }
+        else if (Math.abs(descriptionCount) === 2) {
+            setMoves(pObject);
+        }
+        else {
+            setDescription(pSpecies);
+            descriptionCount = 0;
+        }
+    });
+
 
 }
 
@@ -36,6 +65,7 @@ function setIcon(pokemonObject) {
 
 function setDescription(species) {
     console.log(species.flavor_text_entries[2]);
+    document.getElementById('name').innerHTML = species.flavor_text_entries[2].flavor_text;
 }
 
 
@@ -51,10 +81,12 @@ function setMoves(pokemonObject) {
             break;
         }
     }
+
+    document.getElementById('name').innerHTML = moves;
 }
 
 //filter Pre evoolution and set icon for said pokemon
-async function getEvolution(species){
+async function setEvolution(species){
 
     let preEvolution = '';
 
@@ -73,6 +105,7 @@ async function getEvolution(species){
     let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
     let icon = document.getElementById('iconEvolution');
     icon.src = src;
+    document.getElementById('name').innerHTML = preEvolution;
 
 }
 
