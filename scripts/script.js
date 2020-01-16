@@ -26,6 +26,7 @@ async function getPokemon(name){
     // Activate buttons
     let descriptionCount = 0;
 
+
     document.getElementById('nextButton').addEventListener('click', function () {
         descriptionCount++;
         if (descriptionCount === 1) {
@@ -89,23 +90,28 @@ function setMoves(pokemonObject) {
 async function setEvolution(species){
 
     let preEvolution = '';
+    let icon = document.getElementById('iconEvolution');
+    icon.style.visibility = 'hidden';
 
     if (species.evolves_from_species == null) {
         preEvolution = "No previous evolution";
+        document.getElementById('name').innerHTML = preEvolution;
     }
     else {
         preEvolution = species.evolves_from_species.name;
+
+        //need to do a fetch to get the json of the evolution pokemon, so i can get the image, not in the other json
+        let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${preEvolution}`);
+        let evolutionObject = await res.json();
+
+        //seticon to dom
+        let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
+        icon.src = src;
+        icon.style.visibility = 'visible';
+        document.getElementById('name').innerHTML = preEvolution;
     }
     
-    //need to do a fetch to get the json of the evolution pokemon, so i can get the image, not in the other json
-    let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${preEvolution}`);
-    let evolutionObject = await res.json();
 
-    //seticon to dom
-    let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
-    let icon = document.getElementById('iconEvolution');
-    icon.src = src;
-    document.getElementById('name').innerHTML = preEvolution;
 
 }
 
