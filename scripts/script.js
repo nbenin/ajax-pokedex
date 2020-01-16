@@ -1,11 +1,13 @@
+// Globals
+const DESCRIPTIONDIV =document.getElementById('description');
+const MOVESDIV = document.getElementById('moves');
+const EVOLUTIONDIV = document.getElementById('evolution');
+
 // Main program
 document.getElementById('button').addEventListener('click',  function() {
 
     let pokemonName = document.getElementById('input').value;
     getPokemon(pokemonName);
-
-    //output name in DOM element
-    document.getElementById('Pname').innerHTML = pokemonName;
 
 });
 
@@ -23,6 +25,7 @@ async function getPokemon(name){
     setDescription(pSpecies);
     setIcon(pObject);
 
+
     // Activate buttons
     let descriptionCount = 0;
 
@@ -30,12 +33,16 @@ async function getPokemon(name){
     document.getElementById('nextButton').addEventListener('click', function () {
         descriptionCount++;
         if (descriptionCount === 1) {
+            DESCRIPTIONDIV.style.visibility= 'hidden';
             setMoves(pObject);
+
         }
         else if (descriptionCount === 2) {
+            MOVESDIV.style.visibility='hidden';
             setEvolution(pSpecies);
         }
         else {
+            EVOLUTIONDIV.style.visibility="hidden";
             setDescription(pSpecies);
             descriptionCount = 0;
         }
@@ -43,12 +50,15 @@ async function getPokemon(name){
     document.getElementById('prevButton').addEventListener('click', function () {
         descriptionCount--;
         if (Math.abs(descriptionCount) === 1) {
+            DESCRIPTIONDIV.style.visibility= 'hidden'
             setEvolution(pSpecies);
         }
         else if (Math.abs(descriptionCount) === 2) {
+            EVOLUTIONDIV.style.visibility="hidden";
             setMoves(pObject);
         }
         else {
+            MOVESDIV.style.visibility='hidden';
             setDescription(pSpecies);
             descriptionCount = 0;
         }
@@ -62,9 +72,12 @@ function setIcon(pokemonObject) {
     let img = pokemonObject.sprites.front_default;
     let icon = document.getElementById('icon');
     icon.src = img;
+    icon.style.visibility= "visible";
+
 }
 
 function setDescription(species) {
+    DESCRIPTIONDIV.style.visibility= "visible";
     console.log(species.flavor_text_entries[2]);
     document.getElementById('information').innerHTML = species.flavor_text_entries[2].flavor_text;
 }
@@ -72,6 +85,8 @@ function setDescription(species) {
 
 //filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
+
+    MOVESDIV.style.visibility = 'visible';
 
     // fill an array with up to 4 moves
     let moves = [];
@@ -89,9 +104,10 @@ function setMoves(pokemonObject) {
 //filter Pre evoolution and set icon for said pokemon
 async function setEvolution(species){
 
+    EVOLUTIONDIV.style.visibility = 'visible';
+
     let preEvolution = '';
     let icon = document.getElementById('iconEvolution');
-    icon.style.visibility = 'hidden';
 
     if (species.evolves_from_species == null) {
         preEvolution = "No previous evolution";
@@ -107,7 +123,6 @@ async function setEvolution(species){
         //seticon to dom
         let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
         icon.src = src;
-        icon.style.visibility = 'visible';
         document.getElementById('evolutionName').innerHTML = preEvolution;
     }
     
