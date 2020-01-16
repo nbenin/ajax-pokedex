@@ -1,14 +1,17 @@
 // Globals
-const DESCRIPTIONDIV =document.getElementById('description');
+const DESCRIPTIONDIV = document.getElementById('description');
 const MOVESDIV = document.getElementById('moves');
 const EVOLUTIONDIV = document.getElementById('evolution');
-const EVOLUTIONICON =document.getElementById('iconEvolution');
+const EVOLUTIONICON = document.getElementById('iconEvolution');
 const EVOLUTIONTEXT = document.getElementById('evolutionName');
 
 
 // Main program
 document.getElementById('button').addEventListener('click',  function() {
 
+    DESCRIPTIONDIV.style.visibility = 'hidden';
+    MOVESDIV.style.visibility = 'hidden';
+    EVOLUTIONDIV.style.visibility = 'hidden';
     let pokemonName = document.getElementById('input').value;
     getPokemon(pokemonName);
 
@@ -40,7 +43,7 @@ async function getPokemon(name){
             setMoves(pObject);
 
         }
-        else if (descriptionCount === 2) {
+        else if (descriptionCount === 2 || descriptionCount === -1) {
             MOVESDIV.style.visibility='hidden';
             setEvolution(pSpecies);
         }
@@ -50,14 +53,15 @@ async function getPokemon(name){
             setDescription(pSpecies);
             descriptionCount = 0;
         }
+
     });
     document.getElementById('prevButton').addEventListener('click', function () {
         descriptionCount--;
-        if (Math.abs(descriptionCount) === 1) {
+        if (descriptionCount === -1) {
             DESCRIPTIONDIV.style.visibility= 'hidden';
             setEvolution(pSpecies);
         }
-        else if (Math.abs(descriptionCount) === 2) {
+        else if (descriptionCount === -2) {
             EVOLUTIONDIV.style.visibility="hidden";
             EVOLUTIONICON.style.visibility="hidden";
             setMoves(pObject);
