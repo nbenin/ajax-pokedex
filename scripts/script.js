@@ -2,6 +2,9 @@
 const DESCRIPTIONDIV =document.getElementById('description');
 const MOVESDIV = document.getElementById('moves');
 const EVOLUTIONDIV = document.getElementById('evolution');
+const EVOLUTIONICON =document.getElementById('iconEvolution');
+const EVOLUTIONTEXT = document.getElementById('evolutionName');
+
 
 // Main program
 document.getElementById('button').addEventListener('click',  function() {
@@ -43,6 +46,7 @@ async function getPokemon(name){
         }
         else {
             EVOLUTIONDIV.style.visibility="hidden";
+            EVOLUTIONICON.style.visibility="hidden";
             setDescription(pSpecies);
             descriptionCount = 0;
         }
@@ -50,11 +54,12 @@ async function getPokemon(name){
     document.getElementById('prevButton').addEventListener('click', function () {
         descriptionCount--;
         if (Math.abs(descriptionCount) === 1) {
-            DESCRIPTIONDIV.style.visibility= 'hidden'
+            DESCRIPTIONDIV.style.visibility= 'hidden';
             setEvolution(pSpecies);
         }
         else if (Math.abs(descriptionCount) === 2) {
             EVOLUTIONDIV.style.visibility="hidden";
+            EVOLUTIONICON.style.visibility="hidden";
             setMoves(pObject);
         }
         else {
@@ -107,23 +112,24 @@ async function setEvolution(species){
     EVOLUTIONDIV.style.visibility = 'visible';
 
     let preEvolution = '';
-    let icon = document.getElementById('iconEvolution');
+
 
     if (species.evolves_from_species == null) {
+        EVOLUTIONICON.style.visibility='hidden';
         preEvolution = "No previous evolution";
-        document.getElementById('evolutionName').innerHTML = preEvolution;
+        EVOLUTIONTEXT.innerHTML = preEvolution;
     }
     else {
         preEvolution = species.evolves_from_species.name;
-
+        EVOLUTIONICON.style.visibility='visible';
         //need to do a fetch to get the json of the evolution pokemon, so i can get the image, not in the other json
         let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${preEvolution}`);
         let evolutionObject = await res.json();
 
         //seticon to dom
         let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
-        icon.src = src;
-        document.getElementById('evolutionName').innerHTML = preEvolution;
+        EVOLUTIONICON.src = src;
+        EVOLUTIONTEXT.innerHTML = preEvolution;
     }
     
 
