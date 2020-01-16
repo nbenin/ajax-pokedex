@@ -112,7 +112,7 @@ function setMoves(pokemonObject) {
     // remove children and add new ones
     if (movesList.hasChildNodes()) {
         for (y = 0; y < moves.length; y++) {
-            movesList.removeChild();
+            movesList.removeChild(movesList.childNodes[y]);
         }
     }
 
