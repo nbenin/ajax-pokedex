@@ -66,7 +66,7 @@ function setIcon(pokemonObject) {
 
 function setDescription(species) {
     console.log(species.flavor_text_entries[2]);
-    document.getElementById('name').innerHTML = species.flavor_text_entries[2].flavor_text;
+    document.getElementById('information').innerHTML = species.flavor_text_entries[2].flavor_text;
 }
 
 
@@ -83,7 +83,7 @@ function setMoves(pokemonObject) {
         }
     }
 
-    document.getElementById('name').innerHTML = moves;
+    document.getElementById('movesList').innerHTML = moves;
 }
 
 //filter Pre evoolution and set icon for said pokemon
@@ -95,7 +95,7 @@ async function setEvolution(species){
 
     if (species.evolves_from_species == null) {
         preEvolution = "No previous evolution";
-        document.getElementById('name').innerHTML = preEvolution;
+        document.getElementById('evolutionName').innerHTML = preEvolution;
     }
     else {
         preEvolution = species.evolves_from_species.name;
@@ -108,7 +108,7 @@ async function setEvolution(species){
         let src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionObject.id}.png`;
         icon.src = src;
         icon.style.visibility = 'visible';
-        document.getElementById('name').innerHTML = preEvolution;
+        document.getElementById('evolutionName').innerHTML = preEvolution;
     }
     
 
