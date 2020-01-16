@@ -20,6 +20,7 @@ async function getPokemon(name){
     const pSpecies =   await response2.json();
 
     // Function calls
+    setDescription(pSpecies);
     setIcon(pObject);
     setMoves(pObject);
     getEvolution(pSpecies);
@@ -31,8 +32,10 @@ function setIcon(pokemonObject) {
     let img = pokemonObject.sprites.front_default;
     let icon = document.getElementById('icon');
     icon.src = img;
+}
 
-
+function setDescription(species) {
+    console.log(species.flavor_text_entries[2]);
 }
 
 
@@ -48,8 +51,6 @@ function setMoves(pokemonObject) {
             break;
         }
     }
-    console.log(moves);
-
 }
 
 //filter Pre evoolution and set icon for said pokemon
