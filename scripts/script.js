@@ -17,7 +17,7 @@ document.getElementById('button').addEventListener('click',  function() {
 
 
 
-    let pokemonName = document.getElementById('input').value;
+    let pokemonName = document.getElementById('input').value.toLowerCase();
     getPokemon(pokemonName);
 
 });
@@ -101,8 +101,6 @@ function setDescription(species) {
 function setMoves(pokemonObject) {
 
     MOVESDIV.style.display = 'block';
-    let movesList = document.getElementById('movesList');
-    console.log(movesList);
 
     // fill an array with up to 4 moves
     let moves = [];
@@ -115,14 +113,14 @@ function setMoves(pokemonObject) {
     }
 
     // remove children and add new ones
-    if (movesList.hasChildNodes()) {
+    if (MOVESLIST.hasChildNodes()) {
         for (y = 0; y < moves.length; y++) {
-            movesList.removeChild(movesList.childNodes[0]);
+            MOVESLIST.removeChild(MOVESLIST.childNodes[0]);
         }
     }
-    movesList.innerHTML = '';
+    MOVESLIST.innerHTML = '';
     for (x = 0; x < moves.length; x++) {
-        movesList.innerHTML += '<li>' + moves[x].move.name + '</li>';
+        MOVESLIST.innerHTML += '<li>' + moves[x].move.name + '</li>';
     }
 }
 
