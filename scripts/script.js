@@ -23,8 +23,10 @@ document.getElementById('button').addEventListener('click',  function() {
     EVOLUTIONDIV.style.display = 'none';
 
     let pokemonName = document.getElementById('input').value.toLowerCase();
-    getPokemon(pokemonName);
-
+    getPokemon(pokemonName).catch(error => {
+        alert("Pokemon name or id doesn't exisit, please try again");
+        console.log(error);
+    });
 });
 
 async function getPokemon(name){
