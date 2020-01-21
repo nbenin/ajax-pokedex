@@ -1,11 +1,13 @@
 // Globals
 const DESCRIPTIONDIV = document.getElementById('description');
+const DESCRIPTIONTEXT = document.getElementById('information');
 const MOVESDIV = document.getElementById('moves');
 const EVOLUTIONDIV = document.getElementById('evolution');
 const EVOLUTIONICON = document.getElementById('iconEvolution');
 const EVOLUTIONTEXT = document.getElementById('evolutionName');
 const MOVESLIST = document.getElementById('movesList');
 const ICON = document.getElementById('icon');
+
 
 // Main program
 document.getElementById('button').addEventListener('click',  function() {
@@ -21,8 +23,10 @@ document.getElementById('button').addEventListener('click',  function() {
     EVOLUTIONDIV.style.display = 'none';
 
     let pokemonName = document.getElementById('input').value.toLowerCase();
-    getPokemon(pokemonName);
-
+    getPokemon(pokemonName).catch(error => {
+        alert("Pokemon name or id doesn't exisit, please try again");
+        console.log(error);
+    });
 });
 
 async function getPokemon(name){
@@ -32,6 +36,7 @@ async function getPokemon(name){
     const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
     const pObject =  await response1.json();
     const pSpecies =   await response2.json();
+    console.log(pSpecies);
 
     // Set First Information
     setDescription(pSpecies);
@@ -99,25 +104,55 @@ function setIcon(pokemonObject) {
 // Set flavor text
 function setDescription(species) {
 
-    document.getElementById('information').innerHTML = species.flavor_text_entries[2].flavor_text;
+    // Loop through and get english flavortext
+    for (x = 0; x < species.flavor_text_entries.length; x++) {
+        if (species.flavor_text_entries[x].language.name === "en") {
+            DESCRIPTIONTEXT.innerHTML = species.flavor_text_entries[x].flavor_text;
+            break;
+        }
+        else {
+            continue;
+        }
+    }
 }
 
 // Filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
+    console.log(pokemonObject);
 
-    // Fill an array with up to 4 moves
+    // Fill an array with up to 4 random moves
     let moves = [];
-    for(i =0; i < pokemonObject.moves.length; i++){
-        let getMoves = pokemonObject.moves[i];
-        moves.push(getMoves);
-        if (i >= 3) {
-            break;
-        }
+    let numberOfMoves = 4;
+
+    // Special case for pokemon with less than 4 moves (Ditto)
+    if (pokemonObject.moves.length < 3) {
+        numberOfMoves = pokemonObject.moves.length;
     }
 
+    // Random number generator, if same number generated, will skip
+    while (moves.length < numberOfMoves) {
+        let randomNum = Math.floor(Math.random() * pokemonObject.moves.length);
+        if (moves.length === 0) {
+            moves.push(pokemonObject.moves[randomNum].move.name);
+        }
+        else {
+            for (x = 0; x < moves.length; x++) {
+                if (pokemonObject.moves[randomNum].move.name === moves[x]) {
+                    break;
+                }
+                else {
+                    continue;
+                }
+            }
+            moves.push(pokemonObject.moves[randomNum].move.name);
+        }
+
+    }
+
+    // Append moves list to innerHTML
     MOVESLIST.innerHTML = '';
     for (x = 0; x < moves.length; x++) {
-        MOVESLIST.innerHTML += '<li>' + moves[x].move.name + '</li>';
+        MOVESLIST.innerHTML += '<li>' + moves[x] + '</li>';
     }
 }
 
