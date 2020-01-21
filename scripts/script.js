@@ -1,5 +1,6 @@
 // Globals
 const DESCRIPTIONDIV = document.getElementById('description');
+const DESCRIPTIONTEXT = document.getElementById('information');
 const MOVESDIV = document.getElementById('moves');
 const EVOLUTIONDIV = document.getElementById('evolution');
 const EVOLUTIONICON = document.getElementById('iconEvolution');
@@ -32,6 +33,7 @@ async function getPokemon(name){
     const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
     const pObject =  await response1.json();
     const pSpecies =   await response2.json();
+    console.log(pSpecies);
 
     // Set First Information
     setDescription(pSpecies);
@@ -99,7 +101,17 @@ function setIcon(pokemonObject) {
 // Set flavor text
 function setDescription(species) {
 
-    document.getElementById('information').innerHTML = species.flavor_text_entries[2].flavor_text;
+    // Loop through and get english flavortext
+    for (x = 0; x < species.flavor_text_entries.length; x++) {
+        if (species.flavor_text_entries[x].language.name === "en") {
+            DESCRIPTIONTEXT.innerHTML = species.flavor_text_entries[x].flavor_text;
+            break;
+        }
+        else {
+            continue;
+        }
+    }
+
 }
 
 // Filter at least 4 moves from object and set to DOM
