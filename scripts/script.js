@@ -8,6 +8,7 @@ const EVOLUTIONTEXT = document.getElementById('evolutionName');
 const MOVESLIST = document.getElementById('movesList');
 const ICON = document.getElementById('icon');
 
+
 // Main program
 document.getElementById('button').addEventListener('click',  function() {
 
@@ -111,25 +112,45 @@ function setDescription(species) {
             continue;
         }
     }
-
 }
 
 // Filter at least 4 moves from object and set to DOM
 function setMoves(pokemonObject) {
+    console.log(pokemonObject);
 
-    // Fill an array with up to 4 moves
+    // Fill an array with up to 4 random moves
     let moves = [];
-    for(i =0; i < pokemonObject.moves.length; i++){
-        let getMoves = pokemonObject.moves[i];
-        moves.push(getMoves);
-        if (i >= 3) {
-            break;
-        }
+    let numberOfMoves = 4;
+
+    // Special case for pokemon with less than 4 moves (Ditto)
+    if (pokemonObject.moves.length < 3) {
+        numberOfMoves = pokemonObject.moves.length;
     }
 
+    // Random number generator, if same number generated, will skip
+    while (moves.length < numberOfMoves) {
+        let randomNum = Math.floor(Math.random() * pokemonObject.moves.length);
+        if (moves.length === 0) {
+            moves.push(pokemonObject.moves[randomNum].move.name);
+        }
+        else {
+            for (x = 0; x < moves.length; x++) {
+                if (pokemonObject.moves[randomNum].move.name === moves[x]) {
+                    break;
+                }
+                else {
+                    continue;
+                }
+            }
+            moves.push(pokemonObject.moves[randomNum].move.name);
+        }
+
+    }
+
+    // Append moves list to innerHTML
     MOVESLIST.innerHTML = '';
     for (x = 0; x < moves.length; x++) {
-        MOVESLIST.innerHTML += '<li>' + moves[x].move.name + '</li>';
+        MOVESLIST.innerHTML += '<li>' + moves[x] + '</li>';
     }
 }
 
