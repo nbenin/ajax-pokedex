@@ -4,4 +4,5 @@
 
 - Link to Pokedex [Here](https://nbenin.github.io/ajax-pokedex/)
 
-- Making an Ajax Pokedex
+- Made a Pokedex using Ajax calls to the pokeapi
+- Very satisfied with the outcome, learned lots of cool front-end from Imane!
