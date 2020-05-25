@@ -6,3 +6,9 @@
 
 - Made a Pokedex using Ajax calls to the pokeapi
 - Very satisfied with the outcome, learned lots of cool front-end from Imane!
+
+--------------------------------------------
+
+<p align="center">
+  <img width="600" height="450" src="pokedex.png">
+</p>
